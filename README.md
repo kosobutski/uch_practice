@@ -89,3 +89,38 @@ public void SetScore(int score)
 
 # GameManager.cs
 
+Здесь хранятся три функции.
+Первая - RestartScene. Она нужна для запуска игры.
+
+```
+public void RestartScene()
+{
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    Time.timeScale = 1;
+}
+```
+
+Вторая - Lose. Отображает окно проигрыша, заменяет персонажа на картинку взрыва (картинка взрыва хранится в папке Images) и воспроизводит звук взрыва.
+
+```
+public void Lose()
+{
+    FailPicture.SetActive(true);
+    explosionAudio.Play();
+    LoseWindow.SetActive(true);
+    Time.timeScale = 0;
+}
+```
+
+Третья - LoadScene. Загружает определённую сцену по её номеру.
+
+```
+public void LoadScene(int sceneNumber)
+{
+    SceneManager.LoadScene(sceneNumber);
+    Time.timeScale = 1;
+}
+```
+
+# Техническая настройка
+Чтобы запустить проект, нужно открыть его через Unity Hub и нажать сверху на иконку Play. Игра запустится. Для остановки игры нужно нажать на ту же иконку повторно. Также через настройки объектов можно менять скорость игрока, диапазон Y, частоту спавна труб и т. д. 
